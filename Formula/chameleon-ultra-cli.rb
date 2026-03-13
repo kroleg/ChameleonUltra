@@ -4,8 +4,8 @@ class ChameleonUltraCli < Formula
   desc "CLI client for ChameleonUltra NFC/RFID emulator"
   homepage "https://github.com/kroleg/ChameleonUltra"
   url "https://github.com/kroleg/ChameleonUltra.git",
-    tag:      "v2.0.0",
-    revision: "PLACEHOLDER"
+    tag:      "v2.1.1",
+    revision: "4539122a180d38d5f7e383c513c0f643c39a1841"
   license "GPL-3.0-only"
 
   depends_on "cmake" => :build
