@@ -18,12 +18,12 @@ class ChameleonUltraCli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220571b2f7571e4a01f459ad7a8e7a9403eb1d071e7b/prompt_toolkit-3.0.39.tar.gz"
-    sha256 "04505ade687571d26571d770bed8e8beb44e1a6e2627f7386698b17fe3ca50f0"
+    url "https://files.pythonhosted.org/packages/9a/02/76cadde6135986dc1e82e2928f35ebeb5a1af805e2527fe466285593a2ba/prompt_toolkit-3.0.39.tar.gz"
+    sha256 "04505ade687dc26dc4284b1ad19a83be2f2afe83e7a828ace0c72f3a1df72aac"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974b9bfe56c932e10257dead1f6c23e5e24db5bd/wcwidth-0.2.13.tar.gz"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
