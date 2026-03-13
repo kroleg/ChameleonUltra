@@ -80,3 +80,31 @@ jobs:
           generate_release_notes: true
           append_body: true
           files: release-artifacts/*
+  update_formula:
+    permissions:
+      contents: write
+    name: Update Homebrew formula
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs:
+      - create_release
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update formula tag and revision
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          REVISION="${GITHUB_SHA}"
+          sed -i "s|tag:.*|tag:      \"${TAG}\",|" Formula/chameleon-ultra-cli.rb
+          sed -i "s|revision:.*|revision: \"${REVISION}\"|" Formula/chameleon-ultra-cli.rb
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/chameleon-ultra-cli.rb
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "formula: update chameleon-ultra-cli to ${GITHUB_REF_NAME}"
+          git push origin main
